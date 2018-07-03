@@ -6,14 +6,14 @@ These functions use a number of different techniques, including color masking, a
 These functions were designed to detect multiple plates, but at this stage, multiple plate detection remains inconsistent. 
 
 ## Prerequisites
-These functions were written in MatLab 2015a, as well as the external library DIPImage 2.8.1. Installation instructions, and documentation for DIPImage can be found [here](http://www.diplib.org/download).
+These functions were written in MatLab 2015a, as well as the external library DIPImage 2.9. Installation instructions, and documentation for DIPImage can be found [here](http://www.diplib.org/download).
 
 ## Included functions
 All included functions can be found in the folder [Functions](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions)
 
 A set of test images for demostration purposes can be found in the folder [Test Images](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions/Test%20Images)
 
-### readLicensePlate.m
+### [readLicensePlate.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/readLicensePlate.m)
 Reads, and recognises the license plate number of an image of a car. Accepts an image as a Matlab Array as input, and returns a string of the recognised plate. Returns -1 if no plate detected.
 
 This function works by:
@@ -24,19 +24,19 @@ This function works by:
 
 ![Test Image](ReadmeImages/001_TestImage.png)
 
-### create_templates.m
+### [create_templates.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/createTemplates.m)
 This script creates the letter-number templates used in recognizeText. It segments a master font image into individual letters and numbers, converting them into logical MatLab arrays.
 
 The font used is the Kentenken font, used on number plats in the European Union.
 
 The master font image can be found in the folder [Kentenken font](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions/Kentenken%20Font). The templates are saved into the .mat file 'templates.mat'.
 
-### createMaskHSV3.m
+### [createMaskHSV.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/createMaskHSV.m)
 This function accepts an image as a MatLab array, and returns a logical mask, and subsequent masked image. The image is masked in the HSV color space, and is tuned to mask out yellow license plate objects. 
 
 ![Masked Image](ReadmeImages/002_BinaryMask.png)
 
-### maskLicensePlate.m
+### [maskLicensePlate.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/maskLicensePlate.m)
 This function accepts an image as a MatLab array, and outputs a binary mask, and a subsequent masked image of the license plate. Returns -1 if no license plate object is found.
 
 The function works like so:
@@ -51,7 +51,7 @@ The function works like so:
 
 ![Masked Image](ReadmeImages/003_MaskedPlate.png)
 
-### cropPlate.m
+### [cropPlate.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/cropPlate.m)
 This function accepts an image as a Matlab array, and returns the same image cropped, and rotated around a detected license plate object. Returns -1 if no plate object is found.
 
 The function works like so:
@@ -62,7 +62,7 @@ The function works like so:
 
 ![Cropped Plate](ReadmeImages/004_CroppedPlate.png)
 
-### extractLetters.m
+### [extractLetters.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/extractLetters.m)
 This function accepts a cropped image of a license plate, and returns series of individual, extracted letter images. Returns -1 if no letters were detected. 
 
 The function works as so:
@@ -74,18 +74,18 @@ The function works as so:
 
 ![Extracted Letters](ReadmeImages/005_LetterImages.png)
 
-### recognizetext.m
+### [recognizetext.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/recognizeText.m)
 This function takes an array of individual letter images, and returns a string of recognized letters. Returns -1 on invalid input.
 
 The function works by comparing the correlation coefficients of a letter to a set of prebuilt templates, and selecting the most likely character. 
 
-### num2letter
+### [num2letter2.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/num2Letter2.m)
 A helped function for recognizetext3.m to match array indices to a specific letter/number.
 
-### testFunction.m
+### [testFunction.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/testFunction.m)
 A test script demonstration the usage of readLicensePlate.
 
-### showStages.m
+### [showStages.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/showStages.m)
 A test script demonstrating the usage of the individual functions.
 
 # Notes
@@ -95,4 +95,4 @@ The accuracy and efficiency of this project can still be greatly improved. In pa
 * Color thresholding is quite specific. The functions only extract yellow plates, and certain lighting conditions will cause the functions to fail to recognize plates.
 * Verification - currently, objects are verified as license plates by a specific area to perimeter ratio. This could be improved by more advanced techniques, like contour checking, and corner finding.
 
-This project was completed as an assessment piece at Delft University of Technology.
+This project was originally completed as an assessment piece at Delft University of Technology. Some revisions have been made since to be more presentable to a general audience.
