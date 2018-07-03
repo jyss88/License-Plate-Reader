@@ -5,12 +5,6 @@ These functions use a number of different techniques, including color masking, a
 
 These functions were designed to detect multiple plates, but at this stage, multiple plate detection remains inconsistent. 
 
-This project was created as part of a university project. As such, accuracy and efficiency can still be improved. In particular: 
-
-* The OCR section remains quite rudimentary, and can be improved with greater machine learning techniques.
-* Color thresholding is quite specific. The functions only extract yellow plates, and certain lighting conditions will cause the functions to fail to recognize plates.
-* Verification - currently, objects are verified as license plates by a specific area to perimeter ratio. This could be improved by more advanced techniques, like contour checking, and corner finding.
-
 ## Prerequisites
 These functions were written in MatLab 2015a, as well as the external library DIPImage 2.8.1. Installation instructions, and documentation for DIPImage can be found [here](http://www.diplib.org/download).
 
