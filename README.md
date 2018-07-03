@@ -17,6 +17,8 @@ These functions were written in MatLab 2015a, as well as the external library DI
 ## Included functions
 All included functions can be found in the folder [Functions](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions)
 
+A set of test images for demostration purposes can be found in the folder [Test Images](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions/Test%20Images)
+
 ### readLicensePlate.m
 Reads, and recognises the license plate number of an image of a car. Accepts an image as a Matlab Array as input, and returns a string of the recognised plate. Returns -1 if no plate detected.
 
@@ -29,9 +31,11 @@ This function works by:
 ![Test Image](ReadmeImages/001_TestImage.png)
 
 ### create_templates.m
-This script creates the letter-number templates used in recognizeText3. It takes a series of images of letters and numbers, converting them into logical MatLab arrays.
+This script creates the letter-number templates used in recognizeText. It segments a master font image into individual letters and numbers, converting them into logical MatLab arrays.
 
-Letter images are included in the file 'letters-numbers'. The templates are saved into the .mat file 'templates.mat'.
+The font used is the Kentenken font, used on number plats in the European Union.
+
+The master font image can be found in the folder [Kentenken font](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions/Kentenken%20Font). The templates are saved into the .mat file 'templates.mat'.
 
 ### createMaskHSV3.m
 This function accepts an image as a MatLab array, and returns a logical mask, and subsequent masked image. The image is masked in the HSV color space, and is tuned to mask out yellow license plate objects. 
