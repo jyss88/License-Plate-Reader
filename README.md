@@ -27,7 +27,7 @@ This function works by:
 ### [create_templates.m](https://github.com/jyss88/License-Plate-Reader/blob/master/Functions/createTemplates.m)
 This script creates the letter-number templates used in recognizeText. It segments a master font image into individual letters and numbers, converting them into logical MatLab arrays.
 
-The font used is the Kentenken font, used on number plats in the European Union.
+The font used is the Kentenken font, used on number plates in the European Union.
 
 The master font image can be found in the folder [Kentenken font](https://github.com/jyss88/License-Plate-Reader/tree/master/Functions/Kentenken%20Font). The templates are saved into the .mat file 'templates.mat'.
 
