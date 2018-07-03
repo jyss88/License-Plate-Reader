@@ -12,7 +12,7 @@ This project was created as part of a university project. As such, accuracy and 
 * Verification - currently, objects are verified as license plates by a specific area to perimeter ratio. This could be improved by more advanced techniques, like contour checking, and corner finding.
 
 ## Prerequisites
-These functions were written in MatLab 2015a, as well as the external library DIPImage. Installation instructions, and documentation for DIPImage can be found [here](http://www.diplib.org/download).
+These functions were written in MatLab 2015a, as well as the external library DIPImage 2.8.1. Installation instructions, and documentation for DIPImage can be found [here](http://www.diplib.org/download).
 
 ## Included functions
 
