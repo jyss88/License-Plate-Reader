@@ -1,0 +1,49 @@
+%% Initialize 
+clear; close all; clc
+run('C:\Program Files\DIPimage 2.9\dipstart.m')
+global templates numTemplates;
+load('Templates.mat')
+
+%% Load image
+image = imread('Test Images\test001.png');
+testImageFigure = figure;
+imshow(image)
+title('Test image')
+saveas(testImageFigure, '..\Readme Images\001_TestImage.png')
+
+%% Create mask
+mask = createMaskHSV(image);
+binaryMaskFigure = figure;
+imshow(mask)
+title('Binary mask - color thresholding')
+saveas(binaryMaskFigure, '..\Readme Images\002_BinaryMask.png')
+
+%% Mask license plate from image
+maskedImage = maskLicensePlate(image);
+maskedImageFigure = figure;
+imshow(maskedImage{1})
+title('Masked image')
+saveas(maskedImageFigure, '..\Readme Images\003_MaskedPlate.png')
+
+%% Crop plate
+croppedPlate = cropPlate(image);
+croppedPlateFigure = figure;
+imshow(croppedPlate{1});
+title('Cropped plate')
+saveas(croppedPlateFigure, '..\Readme Images\004_CroppedPlate.png')
+
+%% Extract letters
+letters = extractLetters(croppedPlate{1});
+
+letterFigure = figure;
+
+for i = 1:size(letters, 1)
+    subplot(2, 4, i)
+    imshow(letters{i})
+end
+
+saveas(letterFigure, '..\Readme Images\005_LetterImages.png')
+
+%% Recognize text
+text = recognizeText(letters);
+disp(text)
